@@ -7,7 +7,24 @@
 //
 
 #import "Unit.h"
+#import "Footman.h"
 
 @implementation Unit
+
+- (instancetype)initWithHP:(int)healthPoints AP:(int)attackPower{
+    self = [super init];
+    if (self) {
+        
+        _healthPoints = healthPoints;
+        _attackPower = attackPower;
+        
+        }
+    return self;
+}
+
+
+
+//- (void)setHealthPoints:(int)hp;
+//- (int)healthPoints;
 
 @end

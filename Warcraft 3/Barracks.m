@@ -8,6 +8,7 @@
 
 #import "Barracks.h"
 #import "Footman.h"
+#import "Peasant.h"
 
 
 @implementation Barracks
@@ -32,12 +33,29 @@
     }
 }
 - (BOOL)canTrainFootman{
-    if (self.food <= 2 || self.gold <= 135 ) {
-        return NO;
-    }else{
+    if (self.food >= 3 || self.gold <= 136 ) {
         return YES;
+    }else{
+        return NO;
     }
 }
-
+- (Peasant*)trainPeasant{
+    self.gold = self.gold - 90;
+    self.food = self.food - 5;
+       
+    if ([self canTrainPeasant] == YES) {
+       return [[Peasant alloc]init];
+    }else{
+        return nil;
+    }
+    
+    }
+- (BOOL)canTrainPeasant{
+    if (self.food >= 5 && self.gold >= 90){
+        return YES;
+    }else{
+        return NO;
+    }
+}
 
 @end
